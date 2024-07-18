@@ -1,0 +1,35 @@
+*{
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      font-family: sans-serif;
+}
+body{
+      background-image: url("../imahes/bgp.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+}
+.card-container{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 100px;
+}
+.card{
+      width: 325px;
+      overflow: hidden;
+      margin: 20px;
+      transition: 1s;
+}
+.card img{
+      width: 100%;
+      height: 30rem;
+}
+.card-content{
+      padding: 16px;
+}
+.card:hover{
+      transform: scale(1.1);
+      z-index: 2;
+}

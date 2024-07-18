@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+  html,
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    background-attachment: fixed;
+}
+
+  p{
+    margin-bottom: 20px;
+    
+  }
+
+  #usogleft {
+    margin-left: 75px;
+    font-size: 18px;
+    opacity: 0.6;
+  }
+  form {
+    width: 500px;
+    
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 8px;
+  }
+
+  input {
+    
+    border: 2px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 5px;
+  }
+  
+  .container {
+    position: relative;
+    max-width: 980px;
+    width: 100%;
+   
+    padding: 25px;
+    
+    
+    margin: 40px 0px;
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.password-field {
+  flex-grow: 1;
+  padding-right: 50px; 
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  margin-top: 21px;
+}
+form button{
+  height: 55px;
+  width: 100%;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  margin-top: 30px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  background-color: #3c3ca0;
+}
+form button:hover{
+  background-color: #5757b4;
+}
