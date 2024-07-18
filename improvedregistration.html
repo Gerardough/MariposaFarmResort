@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/> 
+        <meta name="viewport" content = "width=device-width, initial-scale=1.0"/> 
+        <link rel="stylesheet" href="css/styling.css">
+        <title>Client Registration</title>
+    </head>
+    <body>
+        <section class="container">
+            <header>Registration Information</header>
+            <form id="registerMe" action="submitReg.php" method="POST" class="form">
+
+                <div class="required-label">
+                    <label for="check-other"><span class="requiring">*</span> - Marked as required to fill</label>
+                </div>
+                
+                <div class="three-column">
+                    <div class="input-box">
+                        <label>First Name<span class="requiring">*</span></label>
+                        <input type="text" name="c_first_name" placeholder="ex. Mario" required pattern="^[A-Za-z\s]+$">
+                    </div>
+                    <div class="input-box">
+                        <label>Last Name<span class="requiring">*</span></label>
+                        <input type="text" name="c_last_name" placeholder="ex. Dela Cruz" required pattern="^[A-Za-z\s]+$">
+                    </div>
+                    <div class="input-box go-down">
+                        <label>Middle Initial (optional)</label>
+                        <input type="text" name="c_middle_name" placeholder="ex. Marciano" pattern="^[A-Za-z\s]+$">
+                    </div>
+                </div>
+
+                <div class="input-box address">
+                    <label>Address<span class="requiring">*</span></label>
+                    <input type="text" name="c_address" placeholder="Street, City, Country" required>
+                    
+                </div>
+
+                <div class="column">
+                    <div class="input-box">
+                        <label>Birth Date<span class="requiring">*</span></label>
+                        <input type="date" name="c_birth" id="birthdate" placeholder="Enter birth date" required>
+                    </div>
+    
+                    <div class="input-box">
+                        <label>Age</label><br>
+                        <label id="ageLabel"></label><br>
+                        <input type="hidden" id="ageInput" name="c_age">
+                        <label id="ageMessage" class="hidden warning">You must be at least 18 years old to register.</label>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="input-box">
+                        <label>Contact Number<span class="requiring">*</span></label>
+                        <input type="text" name="c_contact" id="contact" placeholder="ex. 09XX-XXX-XXXX" required pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}" maxlength = 13 minlength="13">
+                    </div>
+
+                    <div class="gender-box">
+                        <h3>Gender</h3>
+                        <div class="gender-option">
+                            <div class="gender">
+                                <input type="radio" id="check-male" name="c_gender" value="male"/>
+                                <label for="check-male">Male</label>
+                            </div>
+
+                            <div class="gender">
+                                <input type="radio" id="check-female" name="c_gender" value="female"/>
+                                <label for="check-female">Female</label>
+                            </div>
+
+                            <div class="gender">
+                                <input type="radio" id="check-other" name="c_gender" value="prefer not to say" checked/>
+                                <label for="check-other">Prefer not to say</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="column">
+                    <h3 class="title">Account Creation</h3>
+                </div>
+
+                <div class="column">
+                    <div class="input-box">
+                        <label>Email Address<span class="requiring">*</span></label>
+                        <input id="emailField" name="c_email" type="text" placeholder="ex. user@email.com" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="input-box password-container">
+                        <label>Create a New Password<span class="requiring">*</span></label>
+                        <input id="passwordField" name="c_pass" class="password-field" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"
+                        title="Must contain at least one  number and one uppercase and lowercase letter, at least one special character, and at least 8 or more characters">
+                        <span class="password-toggle" onclick="appearDisappearPassword()">Show</span>
+                    </div>
+                    <div class="input-box password-container">
+                        <label>Confirm New Password<span class="requiring">*</span></label>
+                        <input id="confirmPasswordField" class="password-field" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"
+                        title="Must contain at least one  number and one uppercase and lowercase letter, at least one special character, and at least 8 or more characters">
+                        <span class="password-toggle" onclick="appearDisappearPassword()">Show</span>
+                    </div>
+                </div>        
+
+                <div class="columnlog">
+                    <label class="distance passnote" id="passnote">Kindly match your password to proceed.</label>
+                </div>
+                
+                <div class="column">
+                    <h4 class="sub">In setting up a password:</h4>
+                </div>
+
+                <div class="column">
+                    <label class="fsize" id="8char"><span>It must be at least 8 characters long</span></label>
+                </div>
+                <div class="column">
+                    <label class="fsize" id="lowandupcase"><span>It must contain lowercase characters [a-z] and uppercase characters [A-Z]</span></label>
+                </div>
+                <div class="column">
+                    <label class="fsize" id="containnumber"><span>It must contain a combination of numerical values [0-9]</span></label>
+                </div>
+                <div class="column">
+                    <label class="fsize" id="containspecialchars"><span>It must contain a special character [! @ # $ % ^ & * ( ) _ + - = { } [ ] | : ; " ' < > , . ? /]</span></label>
+                </div>
+
+                <button id="submitBtn" type="submit" name="signup">
+                    Submit Registration
+                </button>
+
+            </form>
+
+            <div class="columnlog">
+                <label class="backtologin">Already have an account? <a class="coloring" href="loginpage.php">Login</a></label>
+            </div>
+        </section>
+
+        <script>
+            // script for automatic filtering of contact number input
+            document.getElementById('contact').addEventListener('input', function (event) {
+            const input = event.target;
+            let value = input.value.replace(/\D/g, '');
+            const length = value.length;
+
+            if (length > 3 && length <= 6) {
+                value = value.replace(/(\d{4})(\d{3})/, '$1-$2');
+            } else if (length > 6) {
+                value = value.replace(/(\d{4})(\d{3})(\d{1,4})/, '$1-$2-$3');
+            }
+
+            input.value = value;
+        });
+
+        // script for showing and hiding of password
+        function appearDisappearPassword() {
+            var passwordFields = document.querySelectorAll(".password-field");
+            var passwordToggle = document.querySelectorAll(".password-toggle");
+
+            passwordFields.forEach(function(field, index) {
+                if (field.type === "password") {
+                    field.type = "text";
+                    passwordToggle[index].textContent = "Hide";
+                } else {
+                    field.type = "password";
+                    passwordToggle[index].textContent = "Show";
+                }
+            });
+        }
+
+        // script for dynamically checking of rules for password setting
+        function checkPasswordCriteria() {
+            var password = document.getElementById("passwordField").value;
+
+            var eightCharLabel = document.getElementById("8char");
+            var lowAndUpCaseLabel = document.getElementById("lowandupcase");
+            var containNumberLabel = document.getElementById("containnumber");
+            var containSpecialCharsLabel = document.getElementById("containspecialchars");
+
+            // reset all rules
+            eightCharLabel.classList.remove("crossed-out");
+            lowAndUpCaseLabel.classList.remove("crossed-out");
+            containNumberLabel.classList.remove("crossed-out");
+            containSpecialCharsLabel.classList.remove("crossed-out");
+
+            // dynamically cross out the rules
+            if (password.length >= 8) {
+                eightCharLabel.classList.add("crossed-out");
+            }
+            if (/[a-z]/.test(password) && /[A-Z]/.test(password)) {
+                lowAndUpCaseLabel.classList.add("crossed-out");
+            }
+            if (/\d/.test(password)) {
+                containNumberLabel.classList.add("crossed-out");
+            }
+            if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+                containSpecialCharsLabel.classList.add("crossed-out");
+            }
+        }
+
+        // event listener for input checking
+        document.getElementById("passwordField").addEventListener("input", checkPasswordCriteria);
+
+        function validateForm() {
+        const submitButton = document.getElementById('submitBtn');
+        const passNote = document.getElementById('passnote');
+        const ageMessageLabel = document.getElementById('ageMessage');
+
+        // check password match
+        var password1 = document.getElementById("passwordField").value;
+        var password2 = document.getElementById("confirmPasswordField").value;
+        const passwordsMatch = (password1 === password2);
+
+        if (!passwordsMatch) {
+            passNote.style.display = 'block';
+        } else {
+            passNote.style.display = 'none';
+        }
+
+        // check age validation
+        const birthdate = new Date(document.getElementById('birthdate').value);
+        const today = new Date();
+        let age = today.getFullYear() - birthdate.getFullYear();
+        const m = today.getMonth() - birthdate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
+            age--;
+        }
+        const ageIsValid = (age >= 18);
+
+        if (!ageIsValid) {
+            document.getElementById('ageLabel').textContent = '';
+            document.getElementById('ageInput').value = '';
+            ageMessageLabel.classList.remove('hidden');
+        } else {
+            document.getElementById('ageLabel').textContent = age;
+            document.getElementById('ageInput').value = age;
+            ageMessageLabel.classList.add('hidden');
+        }
+
+        // enable or disable submit button based on both validations
+        submitButton.disabled = !(passwordsMatch && ageIsValid);
+    }
+
+    // event listeners for password, confirm password, and birthdate fields
+    document.getElementById("passwordField").addEventListener("input", validateForm);
+    document.getElementById("confirmPasswordField").addEventListener("input", validateForm);
+    document.getElementById("birthdate").addEventListener("input", validateForm);
+
+        </script>
+    </body>
+</html>
